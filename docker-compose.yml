@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_server
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: lorena1234
+      MYSQL_DATABASE: db_springboot_cloud      # opcional: nombre de la base de datos que quieras crear al inicio
+      MYSQL_USER: lorena     # opcional: usuario adicional
+      MYSQL_PASSWORD: lorena1234   # opcional: contraseña para el usuario anterior
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
